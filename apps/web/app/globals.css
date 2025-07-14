@@ -20,6 +20,10 @@
 
 @theme {
   --font-pretendard: 'Pretendard', sans-serif;
+}
 
-  --default-font-family: var(--font-pretendard);
+@layer base {
+  html {
+    font-family: var(--font-pretendard);
+  }
 }
