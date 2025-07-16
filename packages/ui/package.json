@@ -38,6 +38,8 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "@radix-ui/react-select": "^2.2.5",
+    "class-variance-authority": "^0.7.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }

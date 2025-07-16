@@ -12,6 +12,14 @@
 
 @font-face {
   font-family: 'Pretendard';
+  src: url('/assets/fonts/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
   src: url('/assets/fonts/Pretendard-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
@@ -25,5 +33,22 @@
 @layer base {
   html {
     font-family: var(--font-pretendard);
+  }
+}
+
+@layer utilities {
+  @keyframes slide-down {
+    from {
+      transform: translateY(-4px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.2s ease-out forwards;
   }
 }
