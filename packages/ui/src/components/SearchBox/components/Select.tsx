@@ -1,17 +1,17 @@
 import {
-  Select,
   SelectContent,
   SelectGroup,
   SelectIcon,
   SelectItem,
   SelectItemText,
   SelectPortal,
+  Select as SelectRoot,
   SelectTrigger,
   SelectValue,
   SelectViewport,
 } from '@radix-ui/react-select'
 import { cva } from 'class-variance-authority'
-import { SelectOption } from './types'
+import { SelectOption } from '../types'
 
 interface SearchSelectProps {
   placeholder?: string
@@ -20,7 +20,7 @@ interface SearchSelectProps {
   onChange?: (value: string) => void
 }
 
-export const SearchSelect = ({
+export const Select = ({
   placeholder,
   value,
   options,
@@ -28,7 +28,7 @@ export const SearchSelect = ({
 }: SearchSelectProps) => {
   return (
     <div>
-      <Select defaultValue={value} onValueChange={onChange}>
+      <SelectRoot defaultValue={value} onValueChange={onChange}>
         <SelectTrigger className={triggerClassName()} aria-label="Food">
           <SelectValue placeholder={placeholder} />
           <SelectIcon>
@@ -57,16 +57,6 @@ export const SearchSelect = ({
           >
             <SelectViewport className={viewportClassName()}>
               <SelectGroup>
-                {/* <SelectItem className={itemClassName()} value="shots">
-                  <SelectItemText>Shots</SelectItemText>
-                </SelectItem>
-                <SelectItem className={itemClassName()} value="designers">
-                  <SelectItemText>Designers</SelectItemText>
-                </SelectItem>
-                <SelectItem className={itemClassName()} value="services">
-                  <SelectItemText>Services</SelectItemText>
-                </SelectItem> */}
-
                 {options?.map(option => (
                   <SelectItem
                     className={itemClassName()}
@@ -80,7 +70,7 @@ export const SearchSelect = ({
             </SelectViewport>
           </SelectContent>
         </SelectPortal>
-      </Select>
+      </SelectRoot>
     </div>
   )
 }
@@ -94,5 +84,5 @@ const contentClassName = cva(
 const viewportClassName = cva('')
 
 const itemClassName = cva(
-  'flex items-center min-w-30 h-9 px-3 rounded-lg text-sm text-gray-900 cursor-pointer outline-0 data-[state=checked]:font-semibold hover:bg-gray-100',
+  'flex items-center min-w-30 h-9 px-3 rounded-lg text-sm text-gray-900 cursor-pointer outline-0 data-[state=checked]:font-semibold hover:bg-gray-100 focus:bg-gray-100',
 )

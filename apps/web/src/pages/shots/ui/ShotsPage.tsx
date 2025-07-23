@@ -3,6 +3,8 @@
 import { Logo, SearchBox } from '@repo/ui'
 import { useState } from 'react'
 
+const SUGGESTIONS = ['apple', 'apple pie', 'apple pie recipe']
+
 const SEARCH_SELECT_OPTIONS = [
   { label: 'Shots', value: 'shots' },
   { label: 'Designers', value: 'designers' },
@@ -22,7 +24,8 @@ export const ShotsPage = () => {
         textPlaceholder="What are you looking for?"
         textValue={searchText}
         onChangeText={setSearchText}
-        selectPlaceholder="All"
+        textSuggestions={SUGGESTIONS}
+        selectPlaceholder="Select"
         selectValue={searchSelect}
         selectOptions={SEARCH_SELECT_OPTIONS}
         onChangeSelect={setSearchSelect}
