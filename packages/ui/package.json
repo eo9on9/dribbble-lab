@@ -18,7 +18,7 @@
   "scripts": {
     "build": "vite build && tsc && npm run build:css",
     "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/index.css --minify",
-    "build:watch": "chokidar 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.svg' -c 'pnpm run build'",
+    "build:watch": "chokidar 'src/**/*.{ts,tsx,svg}' '!src/**/*.test.{ts,tsx}' -c 'pnpm run build'",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest --passWithNoTests",
     "lint": "eslint . --max-warnings 0",
