@@ -1,4 +1,4 @@
-import { Card, Title } from '@repo/ui'
+import { Card, Title } from '@repo/ui/components'
 
 export default function Home() {
   return (

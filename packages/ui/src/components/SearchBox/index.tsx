@@ -1,4 +1,4 @@
-import { Container, Input, SearchButton, Select } from './components'
+import { Container, SearchButton, Select, TextField } from './components'
 import { BoxControlProvider, SuggestionControlProvider } from './contexts'
 import { SelectOption } from './types'
 
@@ -32,12 +32,11 @@ export const SearchBox = ({
     <BoxControlProvider>
       <SuggestionControlProvider suggestions={textSuggestions}>
         <Container>
-          <Input
+          <TextField
             placeholder={textPlaceholder}
             value={textValue}
             onChange={onChangeText}
           />
-
           <Select
             placeholder={selectPlaceholder}
             value={selectValue}

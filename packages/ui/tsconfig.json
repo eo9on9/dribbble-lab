@@ -1,9 +1,12 @@
 {
   "extends": "@repo/typescript-config/react-library.json",
   "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "rootDir": "src",
     "outDir": "dist",
+    "declarationDir": "dist/types",
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

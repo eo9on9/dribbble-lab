@@ -4,13 +4,13 @@ import { useSuggestionControlContext } from '../contexts'
 import { ClearButton } from './ClearButton'
 import { Suggestion } from './Suggestion'
 
-interface InputProps {
+interface TextFieldProps {
   placeholder?: string
   value: string
   onChange: (value: string) => void
 }
 
-export const Input = ({ placeholder, value, onChange }: InputProps) => {
+export const TextField = ({ placeholder, value, onChange }: TextFieldProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const suggestionRef = useRef<HTMLDivElement>(null)
 

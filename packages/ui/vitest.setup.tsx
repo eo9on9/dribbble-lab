@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom'
+
 import { cleanup } from '@testing-library/react'
 import { afterAll, afterEach } from 'vitest'
 
@@ -8,4 +9,6 @@ afterEach(() => {
   vi.clearAllMocks()
 })
 
-afterAll(() => {})
+afterAll(() => {
+  vi.resetAllMocks()
+})
