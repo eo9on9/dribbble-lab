@@ -2,7 +2,6 @@
   "name": "@repo/ui",
   "version": "0.0.0",
   "private": true,
-  "types": "./dist/index.d.ts",
   "exports": {
     "./components": {
       "import": "./dist/components.js",
@@ -19,6 +18,7 @@
   "scripts": {
     "build": "vite build && tsc && npm run build:css",
     "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/index.css --minify",
+    "build:watch": "chokidar 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.svg' -c 'pnpm run build'",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest --passWithNoTests",
     "lint": "eslint . --max-warnings 0",
@@ -39,9 +39,9 @@
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "@vitejs/plugin-react": "^4.6.0",
+    "chokidar-cli": "^3.0.0",
     "eslint": "^9.30.0",
     "jsdom": "^26.1.0",
-    "postcss": "^8.5.6",
     "tailwindcss": "^4.1.11",
     "typescript": "5.8.2",
     "vite": "^7.0.5",
