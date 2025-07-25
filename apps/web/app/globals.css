@@ -35,20 +35,3 @@
     font-family: var(--font-pretendard);
   }
 }
-
-@layer utilities {
-  @keyframes slide-down {
-    from {
-      transform: translateY(-4px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  .animate-slide-down {
-    animation: slide-down 0.2s ease-out forwards;
-  }
-}

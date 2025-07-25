@@ -1,1 +1,33 @@
 @import 'tailwindcss';
+
+@layer utilities {
+  @keyframes slide-down {
+    from {
+      transform: translateY(-4px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.2s ease-out forwards;
+  }
+
+  @keyframes slide-down-reverse {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-4px);
+      opacity: 0;
+    }
+  }
+
+  .animate-slide-down-reverse {
+    animation: slide-down-reverse 0.2s ease-out forwards;
+  }
+}
