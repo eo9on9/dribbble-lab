@@ -1,5 +1,10 @@
 import { cva } from 'class-variance-authority'
-import { ChangeEvent, FocusEvent, KeyboardEvent, useRef } from 'react'
+import {
+  type ChangeEvent,
+  type FocusEvent,
+  type KeyboardEvent,
+  useRef,
+} from 'react'
 import { useSuggestionControlContext } from '../contexts'
 import { ClearButton } from './ClearButton'
 import { Suggestion } from './Suggestion'

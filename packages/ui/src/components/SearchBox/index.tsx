@@ -1,6 +1,6 @@
 import { Container, SearchButton, Select, TextField } from './components'
 import { BoxControlProvider, SuggestionControlProvider } from './contexts'
-import { SelectOption } from './types'
+import { type SelectOption } from './types'
 
 interface SearchBoxProps {
   textPlaceholder?: string

@@ -1,5 +1,5 @@
 import { cva } from 'class-variance-authority'
-import { FocusEvent, PropsWithChildren } from 'react'
+import { type FocusEvent, type PropsWithChildren } from 'react'
 import { useBoxControlContext } from '../contexts/BoxControlContext'
 
 export const Container = ({ children }: PropsWithChildren) => {

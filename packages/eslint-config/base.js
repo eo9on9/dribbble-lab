@@ -30,6 +30,18 @@ export const config = [
     },
   },
   {
+    rules: {
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          prefer: "type-imports",
+          fixStyle: "inline-type-imports",
+          disallowTypeAnnotations: false,
+        },
+      ],
+    },
+  },
+  {
     ignores: ["dist/**"],
   },
 ];

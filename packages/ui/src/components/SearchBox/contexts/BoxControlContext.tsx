@@ -1,4 +1,9 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react'
+import {
+  createContext,
+  type PropsWithChildren,
+  useContext,
+  useState,
+} from 'react'
 
 interface BoxControlContextValue {
   isFocused: boolean

@@ -12,7 +12,7 @@ import {
   SelectViewport,
 } from '@radix-ui/react-select'
 import { cva } from 'class-variance-authority'
-import { SelectOption } from '../types'
+import { type SelectOption } from '../types'
 
 export interface SelectProps {
   placeholder?: string

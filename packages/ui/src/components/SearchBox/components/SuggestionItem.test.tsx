@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { SuggestionItem, SuggestionItemProps } from './SuggestionItem'
+import { SuggestionItem, type SuggestionItemProps } from './SuggestionItem'
 
 const useSuggestionControlContext = vi.hoisted(vi.fn)
 vi.mock('../contexts/SuggestionControlContext', () => ({

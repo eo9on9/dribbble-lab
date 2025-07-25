@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { SelectOption } from '../types'
-import { Select, SelectProps } from './Select'
+import { type SelectOption } from '../types'
+import { Select, type SelectProps } from './Select'
 
 const OPTIONS: SelectOption[] = [
   { label: 'Apple', value: 'apple' },
