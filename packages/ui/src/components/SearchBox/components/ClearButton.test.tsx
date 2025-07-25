@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { ClearButton } from './ClearButton'
 
@@ -7,18 +7,27 @@ vi.mock('../contexts/BoxControlContext', () => ({
   useBoxControlContext,
 }))
 
-describe('<ClearButton />', () => {
+describe('[Component] SearchBox - ClearButton', () => {
+  test('value가 비어있으면 렌더링되지 않는다.', () => {
+    useBoxControlContext.mockReturnValue({
+      isFocused: true,
+      isHovered: true,
+    })
+
+    const { queryByRole } = render(<ClearButton value="" />)
+
+    expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument()
+  })
+
   test('박스가 포커스되어 있지 않고 호버되어 있지 않으면 버튼이 렌더링되지 않는다.', () => {
     useBoxControlContext.mockReturnValue({
       isFocused: false,
       isHovered: false,
     })
 
-    render(<ClearButton />)
+    const { queryByRole } = render(<ClearButton />)
 
-    expect(
-      screen.queryByRole('button', { name: 'Clear' }),
-    ).not.toBeInTheDocument()
+    expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument()
   })
 
   test('박스가 포커스 되어 있거나 호버되어 있으면 버튼이 렌더링된다.', () => {
@@ -27,9 +36,9 @@ describe('<ClearButton />', () => {
       isHovered: false,
     })
 
-    const { rerender } = render(<ClearButton />)
+    const { rerender, queryByRole } = render(<ClearButton />)
 
-    expect(screen.queryByRole('button', { name: 'Clear' })).toBeInTheDocument()
+    expect(queryByRole('button', { name: 'Clear' })).toBeInTheDocument()
 
     useBoxControlContext.mockReturnValue({
       isFocused: false,
@@ -38,7 +47,7 @@ describe('<ClearButton />', () => {
 
     rerender(<ClearButton />)
 
-    expect(screen.queryByRole('button', { name: 'Clear' })).toBeInTheDocument()
+    expect(queryByRole('button', { name: 'Clear' })).toBeInTheDocument()
 
     useBoxControlContext.mockReturnValue({
       isFocused: true,
@@ -47,7 +56,7 @@ describe('<ClearButton />', () => {
 
     rerender(<ClearButton />)
 
-    expect(screen.queryByRole('button', { name: 'Clear' })).toBeInTheDocument()
+    expect(queryByRole('button', { name: 'Clear' })).toBeInTheDocument()
   })
 
   test('버튼을 클릭하면 onClick 함수가 호출된다.', async () => {
@@ -55,9 +64,9 @@ describe('<ClearButton />', () => {
 
     const onClick = vi.fn()
 
-    render(<ClearButton onClick={onClick} />)
+    const { getByRole } = render(<ClearButton onClick={onClick} />)
 
-    await user.click(screen.getByRole('button', { name: 'Clear' }))
+    await user.click(getByRole('button', { name: 'Clear' }))
 
     expect(onClick).toHaveBeenCalledTimes(1)
   })

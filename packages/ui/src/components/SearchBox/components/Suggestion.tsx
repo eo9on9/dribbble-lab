@@ -4,17 +4,18 @@ import { useSuggestionControlContext } from '../contexts'
 import { SuggestionItem } from './SuggestionItem'
 
 interface SuggestionProps {
+  value?: string
   onClick: (suggestion: string) => void
 }
 
 export const Suggestion = forwardRef<HTMLDivElement, SuggestionProps>(
-  ({ onClick }, ref) => {
+  ({ value, onClick }, ref) => {
     const { suggestions, isOpen } = useSuggestionControlContext()
 
-    if (!isOpen) return null
+    if (value?.length === 0 || !isOpen) return null
 
     return (
-      <div ref={ref} className={wrapClassName()}>
+      <div ref={ref} className={wrapClassName()} role="listbox">
         {suggestions.map((s, i) => (
           <SuggestionItem key={s} index={i} suggestion={s} onClick={onClick} />
         ))}

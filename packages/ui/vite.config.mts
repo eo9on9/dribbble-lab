@@ -4,7 +4,12 @@ import path from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [react(), svgr()],
+  plugins: [
+    react(),
+    svgr({
+      dimensions: false,
+    }),
+  ],
   build: {
     outDir: 'dist',
     lib: {

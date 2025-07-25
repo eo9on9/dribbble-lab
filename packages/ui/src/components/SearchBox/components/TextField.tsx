@@ -11,9 +11,6 @@ interface TextFieldProps {
 }
 
 export const TextField = ({ placeholder, value, onChange }: TextFieldProps) => {
-  const inputRef = useRef<HTMLInputElement>(null)
-  const suggestionRef = useRef<HTMLDivElement>(null)
-
   const {
     suggestions,
     setIsOpen: setIsOpenSuggestion,
@@ -23,44 +20,39 @@ export const TextField = ({ placeholder, value, onChange }: TextFieldProps) => {
     setBaseText: setBaseSuggestionText,
   } = useSuggestionControlContext()
 
+  const inputRef = useRef<HTMLInputElement>(null)
+  const suggestionRef = useRef<HTMLDivElement>(null)
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
 
-    if (value.length > 0) {
-      setIsOpenSuggestion(true)
-    } else {
-      setIsOpenSuggestion(false)
-    }
+    setIsOpenSuggestion(value.length > 0)
 
     setBaseSuggestionText(value)
-    onChange?.(e.target.value)
+    onChange(e.target.value)
   }
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault()
 
-      const nextIndex = activeSuggestionIndex + 1
+      const nextIndex =
+        activeSuggestionIndex + 1 >= suggestions.length
+          ? -1
+          : activeSuggestionIndex + 1
 
-      if (nextIndex < suggestions.length) {
-        setActiveSuggestionIndex(nextIndex)
-      } else {
-        setActiveSuggestionIndex(-1)
-      }
-
-      onChange?.(suggestions[nextIndex] ?? baseSuggestionText)
+      setActiveSuggestionIndex(nextIndex)
+      onChange(suggestions[nextIndex] ?? baseSuggestionText)
     } else if (e.key === 'ArrowUp') {
       e.preventDefault()
 
-      const prevIndex = activeSuggestionIndex - 1
+      const prevIndex =
+        activeSuggestionIndex - 1 < -1
+          ? suggestions.length - 1
+          : activeSuggestionIndex - 1
 
-      if (prevIndex >= -1) {
-        setActiveSuggestionIndex(prevIndex)
-      } else {
-        setActiveSuggestionIndex(suggestions.length - 1)
-      }
-
-      onChange?.(suggestions[prevIndex] ?? baseSuggestionText)
+      setActiveSuggestionIndex(prevIndex)
+      onChange(suggestions[prevIndex] ?? baseSuggestionText)
     } else if (e.key === 'Enter') {
       setActiveSuggestionIndex(-1)
       setIsOpenSuggestion(false)
@@ -80,7 +72,7 @@ export const TextField = ({ placeholder, value, onChange }: TextFieldProps) => {
 
   const handleSuggestionClick = (suggestion: string) => {
     setBaseSuggestionText(suggestion)
-    onChange?.(suggestion)
+    onChange(suggestion)
 
     inputRef.current?.focus()
 
@@ -90,7 +82,7 @@ export const TextField = ({ placeholder, value, onChange }: TextFieldProps) => {
 
   const handleClear = () => {
     setBaseSuggestionText('')
-    onChange?.('')
+    onChange('')
 
     inputRef.current?.focus()
   }
@@ -108,12 +100,12 @@ export const TextField = ({ placeholder, value, onChange }: TextFieldProps) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
       />
-      {value.length > 0 && (
-        <>
-          <ClearButton onClick={handleClear} />
-          <Suggestion ref={suggestionRef} onClick={handleSuggestionClick} />
-        </>
-      )}
+      <ClearButton value={value} onClick={handleClear} />
+      <Suggestion
+        ref={suggestionRef}
+        value={value}
+        onClick={handleSuggestionClick}
+      />
     </div>
   )
 }

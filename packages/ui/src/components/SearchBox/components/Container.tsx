@@ -3,8 +3,7 @@ import { FocusEvent, PropsWithChildren } from 'react'
 import { useBoxControlContext } from '../contexts/BoxControlContext'
 
 export const Container = ({ children }: PropsWithChildren) => {
-  const { setIsFocused, setIsHovered, isFocused, isHovered } =
-    useBoxControlContext()
+  const { setIsFocused, setIsHovered } = useBoxControlContext()
 
   const handleFocus = () => {
     setIsFocused(true)
@@ -31,6 +30,7 @@ export const Container = ({ children }: PropsWithChildren) => {
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      role="searchbox"
     >
       {children}
     </div>
