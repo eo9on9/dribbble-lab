@@ -2,7 +2,6 @@
 
 import { Logo, SearchBox } from '@repo/ui/components'
 
-import { ClearIcon } from '@repo/ui/icons'
 import { useState } from 'react'
 
 const SUGGESTIONS = ['apple', 'apple pie', 'apple pie recipe']
@@ -22,7 +21,6 @@ export const ShotsPage = () => {
       <div className="w-20 mb-6">
         <Logo />
       </div>
-      <ClearIcon />
       <SearchBox
         textPlaceholder="What are you looking for?"
         textValue={searchText}
