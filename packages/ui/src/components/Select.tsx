@@ -15,14 +15,24 @@ import {
 import { cva } from 'class-variance-authority'
 
 export type SelectOptions = {
-  label: string
+  /** 값 */
   value: string
+
+  /** 라벨 */
+  label: string
 }
 
 export interface SelectProps {
+  /** 값 */
   value?: string
+
+  /** 값 변경 호출 함수 */
   onChange: (value: string) => void
+
+  /** 옵션 목록 */
   options: SelectOptions[]
+
+  /** 플레이스홀더 */
   placeholder?: string
 }
 
