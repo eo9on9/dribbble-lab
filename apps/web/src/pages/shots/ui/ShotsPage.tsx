@@ -1,6 +1,6 @@
 'use client'
 
-import { Logo, SearchBox } from '@repo/ui/components'
+import { Logo, SearchBox, Select } from '@repo/ui/components'
 
 import { useState } from 'react'
 
@@ -15,6 +15,8 @@ const SEARCH_SELECT_OPTIONS = [
 export const ShotsPage = () => {
   const [searchText, setSearchText] = useState('')
   const [searchSelect, setSearchSelect] = useState('')
+
+  const [selectValue, setSelectValue] = useState('')
 
   return (
     <div className="p-9">
@@ -33,6 +35,18 @@ export const ShotsPage = () => {
         onSearch={v => {
           console.log(v)
         }}
+      />
+      <br />
+      <br />
+      <Select
+        value={selectValue}
+        onChange={setSelectValue}
+        options={[
+          { label: 'Following', value: 'following' },
+          { label: 'Popular', value: 'popular' },
+          { label: 'New & Noteworthy', value: 'recent' },
+        ]}
+        placeholder="Select"
       />
     </div>
   )
