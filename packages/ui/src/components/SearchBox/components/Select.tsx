@@ -1,9 +1,10 @@
-import { SelectArrowIcon } from '#icons'
+import { CheckIcon, SelectArrowIcon } from '#icons'
 import {
   SelectContent,
   SelectGroup,
   SelectIcon,
   SelectItem,
+  SelectItemIndicator,
   SelectItemText,
   SelectPortal,
   Select as SelectRoot,
@@ -33,7 +34,7 @@ export const Select = ({
         <SelectTrigger className={triggerClassName()} aria-label="Category">
           <SelectValue placeholder={placeholder} />
           <SelectIcon>
-            <SelectArrowIcon className={iconClassName()} />
+            <SelectArrowIcon width={10} height={10} />
           </SelectIcon>
         </SelectTrigger>
         <SelectPortal>
@@ -42,7 +43,7 @@ export const Select = ({
             position="popper"
             sideOffset={4}
           >
-            <SelectViewport className={viewportClassName()}>
+            <SelectViewport>
               <SelectGroup>
                 {options?.map(option => (
                   <SelectItem
@@ -51,6 +52,9 @@ export const Select = ({
                     key={option.value}
                   >
                     <SelectItemText>{option.label}</SelectItemText>
+                    <SelectItemIndicator>
+                      <CheckIcon width={10} height={8} />
+                    </SelectItemIndicator>
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -68,10 +72,7 @@ const triggerClassName = cva(
 const contentClassName = cva(
   'p-3 bg-white shadow-md rounded-lg animate-slide-down',
 )
-const viewportClassName = cva('')
 
 const itemClassName = cva(
   'flex items-center min-w-30 h-9 px-3 rounded-lg text-sm text-gray-900 cursor-pointer outline-0 data-[state=checked]:font-semibold hover:bg-gray-100 focus:bg-gray-100',
 )
-
-const iconClassName = cva('w-3 h-3')

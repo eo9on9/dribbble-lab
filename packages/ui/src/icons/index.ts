@@ -1,3 +1,4 @@
+import { ReactComponent as CheckIcon } from './check.svg'
 import { ReactComponent as ClearIcon } from './clear.svg'
 import { ReactComponent as FollowIcon } from './follow.svg'
 import { ReactComponent as MenuArrowIcon } from './menu-arrow.svg'
@@ -7,6 +8,7 @@ import { ReactComponent as SearchIcon } from './search.svg'
 import { ReactComponent as SelectArrowIcon } from './select-arrow.svg'
 
 export {
+  CheckIcon,
   ClearIcon,
   FollowIcon,
   MenuArrowIcon,
