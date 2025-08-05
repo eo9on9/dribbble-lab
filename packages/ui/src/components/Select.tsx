@@ -68,41 +68,33 @@ export const Select = ({
   )
 }
 
-const triggerClassName = cva(`
+const triggerClassName = cva([
   /* layout */
-  flex gap-3 items-center h-10 px-4 border border-gray-300 rounded-lg
-
+  'flex gap-3 items-center h-10 px-4 border border-gray-300 rounded-lg',
   /* text */
-  text-gray-900 font-semibold text-sm 
-
+  'text-gray-900 font-semibold text-sm',
   /* interactivity */
-  cursor-pointer  
-
+  'cursor-pointer',
   /* case: focus */
-  focus-visible:outline-1 focus-visible:outline-offset-1 focus-visible:outline-gray-500 
-
+  'focus-visible:outline-1 focus-visible:outline-offset-1 focus-visible:outline-gray-500',
   /* case: hover */
-  hover:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.03)]
-`)
+  'hover:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.03)]',
+])
 
-const contentClassName = cva(`
+const contentClassName = cva([
   /* layout */
-  p-3 border border-gray-300 rounded-lg bg-white
-`)
+  'p-3 border border-gray-300 rounded-lg bg-white',
+])
 
-const itemClassName = cva(`
+const itemClassName = cva([
   /* layout */
-  flex items-center justify-between gap-3 min-w-[160px] h-9 px-3 rounded-lg
-
+  'flex items-center justify-between gap-3 min-w-[160px] h-9 px-3 rounded-lg',
   /* text */
-  text-xs text-gray-900 
-
+  'text-xs text-gray-900',
   /* interactivity */
-  cursor-pointer outline-0 
-
+  'cursor-pointer outline-0',
   /* case: checked */
-  data-[state=checked]:font-semibold data-[state=checked]:bg-gray-100
-
+  'data-[state=checked]:font-semibold data-[state=checked]:bg-gray-100',
   /* case: hover */
-  hover:bg-gray-50 focus:bg-gray-50
-`)
+  'hover:bg-gray-50 focus:bg-gray-50',
+])
