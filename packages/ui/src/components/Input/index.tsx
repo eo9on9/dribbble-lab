@@ -39,7 +39,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       onBlur?.(e)
     }
 
-    const isShowPrefix = isFocused || innerRef.current?.value.length
+    const isShowPrefix = Boolean(
+      prefix && (isFocused || innerRef.current?.value.length),
+    )
 
     return (
       <div
@@ -56,9 +58,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           </span>
         )}
         <span className={inputWrapClassName()}>
-          {Boolean(prefix && isShowPrefix) && (
-            <span className={prefixWrapClassName()}>{prefix}</span>
-          )}
+          {isShowPrefix && <span>{prefix}</span>}
           <input
             className={inputClassName()}
             ref={innerRef}
@@ -74,14 +74,32 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
 Input.displayName = 'Input'
 
-const boxClassName = cva(
-  'flex items-center gap-3 w-full px-4 h-10 border border-gray-300 rounded-lg cursor-text text-gray-900 text-sm',
-)
+const boxClassName = cva([
+  /** layout */
+  'flex items-center gap-3 w-full px-4 h-10 border border-gray-300 rounded-lg',
+  /** text */
+  'text-gray-900 text-sm',
+  /** interactivity */
+  'cursor-text',
+  /** case: focus */
+  'focus-within:border-pink-400 focus-within:shadow-[0_0_0_4px_rgba(234,100,217,0.1)]',
+  /** case: hover */
+  'hover:shadow-[0_0_0_4px_rgba(234,100,217,0.1)]',
+  /** case: active */
+  'active:shadow-none active:border-gray-300',
+])
 
-const iconWrapClassName = cva('w-4 h-4')
+const iconWrapClassName = cva([
+  /** layout */
+  'w-4 h-4',
+])
 
-const prefixWrapClassName = cva('')
+const inputWrapClassName = cva([
+  /** layout */
+  'flex items-center flex-auto gap-[2px]',
+])
 
-const inputWrapClassName = cva('flex items-center flex-auto gap-[2px]')
-
-const inputClassName = cva('w-full outline-0')
+const inputClassName = cva([
+  /** layout */
+  'w-full outline-0',
+])
