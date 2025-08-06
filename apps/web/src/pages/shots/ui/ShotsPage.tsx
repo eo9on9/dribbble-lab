@@ -2,7 +2,7 @@
 
 import { Logo, SearchBox, Select } from '@repo/ui/components'
 
-import { useState } from 'react'
+import { type FC, useState } from 'react'
 
 const SUGGESTIONS = ['apple', 'apple pie', 'apple pie recipe']
 
@@ -12,7 +12,7 @@ const SEARCH_SELECT_OPTIONS = [
   { label: 'Services', value: 'services' },
 ]
 
-export const ShotsPage = () => {
+export const ShotsPage: FC = () => {
   const [searchText, setSearchText] = useState('')
   const [searchSelect, setSearchSelect] = useState('')
 
