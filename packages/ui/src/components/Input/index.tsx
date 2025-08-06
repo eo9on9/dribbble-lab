@@ -9,7 +9,7 @@ import {
   type ReactNode,
 } from 'react'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** 아이콘 */
   icon?: ReactNode
 
@@ -19,7 +19,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ icon, prefix, onFocus, onBlur, ...props }, ref) => {
-    const [isFocused, setIsFocused] = useState(false)
+    const [isShowPrefix, setIsShowPrefix] = useState(
+      Boolean(props.value || props.defaultValue),
+    )
 
     const wrapperRef = useRef<HTMLDivElement>(null)
 
@@ -28,20 +30,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     useImperativeHandle(ref, () => innerRef.current!)
 
     const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
-      setIsFocused(true)
+      setIsShowPrefix(true)
 
       onFocus?.(e)
     }
 
     const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
-      setIsFocused(false)
+      setIsShowPrefix(Boolean(innerRef.current?.value.length))
 
       onBlur?.(e)
     }
-
-    const isShowPrefix = Boolean(
-      prefix && (isFocused || innerRef.current?.value.length),
-    )
 
     return (
       <div
@@ -58,7 +56,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           </span>
         )}
         <span className={inputWrapClassName()}>
-          {isShowPrefix && <span>{prefix}</span>}
+          {prefix && isShowPrefix && <span aria-label="prefix">{prefix}</span>}
           <input
             className={inputClassName()}
             ref={innerRef}
