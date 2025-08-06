@@ -23,9 +23,9 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react-dom'],
       output: {
-        // 👇 entry name을 기반으로 파일명 지정
         entryFileNames: '[name].js',
-        preserveModules: false,
+        preserveModules: true,
+        preserveModulesRoot: 'src',
       },
     },
   },

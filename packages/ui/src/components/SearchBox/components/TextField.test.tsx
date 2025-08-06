@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { useState } from 'react'
-import { BoxControlProvider, SuggestionControlProvider } from '../contexts'
+import { BoxControlProvider } from '../contexts/BoxControlContext'
+import { SuggestionControlProvider } from '../contexts/SuggestionControlContext'
 import { Container } from './Container'
 import { TextField } from './TextField'
 

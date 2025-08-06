@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react'
 
 import { userEvent } from '@testing-library/user-event'
-import { Select, type SelectProps } from './Select'
+import { Select, type SelectProps } from '.'
 
 const onChange = vi.fn()
 const setup = (props: Partial<SelectProps> = {}) => ({

@@ -1,6 +1,6 @@
 import { SearchIcon } from '#icons'
 import { cva } from 'class-variance-authority'
-import { useSuggestionControlContext } from '../contexts'
+import { useSuggestionControlContext } from '../contexts/SuggestionControlContext'
 
 export interface SuggestionItemProps {
   index: number

@@ -1,5 +1,9 @@
-import { Container, SearchButton, Select, TextField } from './components'
-import { BoxControlProvider, SuggestionControlProvider } from './contexts'
+import { Container } from './components/Container'
+import { SearchButton } from './components/SearchButton'
+import { Select } from './components/Select'
+import { TextField } from './components/TextField'
+import { BoxControlProvider } from './contexts/BoxControlContext'
+import { SuggestionControlProvider } from './contexts/SuggestionControlContext'
 import { type SelectOption } from './types'
 
 interface SearchBoxProps {

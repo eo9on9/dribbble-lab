@@ -1,7 +1,8 @@
 'use client'
 
-import { Logo, SearchBox, Select } from '@repo/ui/components'
-
+import { Logo } from '@repo/ui/components/Logo'
+import { SearchBox } from '@repo/ui/components/SearchBox'
+import { Select } from '@repo/ui/components/Select'
 import { type FC, useState } from 'react'
 
 const SUGGESTIONS = ['apple', 'apple pie', 'apple pie recipe']

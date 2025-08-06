@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./components": {
-      "import": "./dist/components.js",
-      "types": "./dist/types/components/index.d.ts"
+    "./components/*": {
+      "import": "./dist/components/*/index.js",
+      "types": "./dist/components/*/index.d.ts"
     },
     "./icons": {
       "import": "./dist/icons.js",

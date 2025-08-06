@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority'
 import { forwardRef } from 'react'
-import { useSuggestionControlContext } from '../contexts'
+import { useSuggestionControlContext } from '../contexts/SuggestionControlContext'
 import { SuggestionItem } from './SuggestionItem'
 
 interface SuggestionProps {
