@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Select } from '@repo/ui/components'
+import { Select } from '@repo/ui/components/Select'
 import { fn } from 'storybook/test'
 
 const meta = {

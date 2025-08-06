@@ -9,7 +9,7 @@
     },
     "./icons": {
       "import": "./dist/icons.js",
-      "types": "./dist/types/icons/index.d.ts"
+      "types": "./dist/icons/index.d.ts"
     },
     "./style.css": {
       "default": "./dist/index.css"
