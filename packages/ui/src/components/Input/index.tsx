@@ -18,7 +18,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ icon, prefix, onFocus, onBlur, ...props }, ref) => {
+  ({ icon, prefix, onFocus, onBlur, className, ...props }, ref) => {
     const [isShowPrefix, setIsShowPrefix] = useState(
       Boolean(props.value || props.defaultValue),
     )
@@ -43,7 +43,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div
-        className={boxClassName()}
+        className={cva([boxClassName(), className])()}
         ref={wrapperRef}
         onClick={() => innerRef.current?.focus()}
       >
@@ -74,7 +74,7 @@ Input.displayName = 'Input'
 
 const boxClassName = cva([
   /** layout */
-  'flex items-center gap-3 w-full px-4 h-10 border border-gray-300 rounded-lg',
+  'flex items-center gap-3 px-4 h-10 border border-gray-300 rounded-lg',
   /** text */
   'text-gray-900 text-sm',
   /** interactivity */
@@ -94,10 +94,10 @@ const iconWrapClassName = cva([
 
 const inputWrapClassName = cva([
   /** layout */
-  'flex items-center flex-auto gap-[2px]',
+  'flex items-center flex-auto h-full gap-[2px]',
 ])
 
 const inputClassName = cva([
   /** layout */
-  'w-full outline-0',
+  'w-full h-full outline-0',
 ])
