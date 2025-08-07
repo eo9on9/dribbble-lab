@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { SearchIcon } from '@repo/ui/icons'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -22,7 +20,21 @@ const meta = {
   argTypes: {
     icon: {
       control: false,
-      description: 'ReactNode',
+      description: '좌측 아이콘',
+      table: {
+        type: {
+          summary: 'ReactNode',
+        },
+      },
+    },
+    prefix: {
+      control: 'text',
+      description: '좌측 접두사',
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
     },
   },
 } satisfies Meta<typeof Input>

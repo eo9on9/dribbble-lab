@@ -13,6 +13,7 @@ import {
   SelectViewport,
 } from '@radix-ui/react-select'
 import { cva } from 'class-variance-authority'
+import { forwardRef, type HTMLAttributes } from 'react'
 
 export type SelectOptions = {
   /** 값 */
@@ -22,7 +23,8 @@ export type SelectOptions = {
   label: string
 }
 
-export interface SelectProps {
+export interface SelectProps
+  extends Omit<HTMLAttributes<HTMLButtonElement>, 'onChange'> {
   /** 값 */
   value?: string
 
@@ -36,64 +38,67 @@ export interface SelectProps {
   placeholder?: string
 }
 
-export const Select = ({
-  value,
-  onChange,
-  options,
-  placeholder,
-}: SelectProps) => {
-  return (
-    <SelectRoot value={value} onValueChange={onChange}>
-      <SelectTrigger className={triggerClassName()}>
-        <SelectValue placeholder={placeholder} />
-        <SelectIcon>
-          <SelectArrowIcon width={10} height={10} />
-        </SelectIcon>
-      </SelectTrigger>
-      <SelectPortal>
-        <SelectContent
-          className={contentClassName()}
-          position="popper"
-          sideOffset={8}
+export const Select = forwardRef<HTMLButtonElement, SelectProps>(
+  ({ value, onChange, options, placeholder, className, ...props }, ref) => {
+    return (
+      <SelectRoot value={value} onValueChange={onChange}>
+        <SelectTrigger
+          className={cva([triggerClassName(), className])()}
+          ref={ref}
+          {...props}
         >
-          <SelectViewport>
-            <SelectGroup>
-              {options.map(option => (
-                <SelectItem
-                  key={option.value}
-                  value={option.value}
-                  className={itemClassName()}
-                >
-                  <SelectItemText>{option.label}</SelectItemText>
-                  <SelectItemIndicator>
-                    <CheckIcon width={10} height={8} />
-                  </SelectItemIndicator>
-                </SelectItem>
-              ))}
-            </SelectGroup>
-          </SelectViewport>
-        </SelectContent>
-      </SelectPortal>
-    </SelectRoot>
-  )
-}
+          <SelectValue placeholder={placeholder} />
+          <SelectIcon>
+            <SelectArrowIcon width={10} height={10} />
+          </SelectIcon>
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectContent
+            className={contentClassName()}
+            position="popper"
+            sideOffset={8}
+          >
+            <SelectViewport>
+              <SelectGroup>
+                {options.map(option => (
+                  <SelectItem
+                    key={option.value}
+                    value={option.value}
+                    className={itemClassName()}
+                  >
+                    <SelectItemText>{option.label}</SelectItemText>
+                    <SelectItemIndicator>
+                      <CheckIcon width={10} height={8} />
+                    </SelectItemIndicator>
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectViewport>
+          </SelectContent>
+        </SelectPortal>
+      </SelectRoot>
+    )
+  },
+)
+
+Select.displayName = 'Select'
 
 const triggerClassName = cva([
   /* layout */
-  'flex gap-3 items-center h-10 px-4 border border-gray-300 rounded-lg',
+  'flex gap-3 items-center justify-between h-10 px-4 border border-gray-300 rounded-lg',
   /* text */
   'text-gray-900 font-semibold text-sm',
   /* interactivity */
-  'cursor-pointer',
+  'cursor-pointer outline-0',
   /* case: focus */
-  'focus-visible:outline-1 focus-visible:outline-offset-1 focus-visible:outline-gray-500',
-  /* case: hover */
+  'focus:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.03)]',
+  /** case: hover */
   'hover:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.03)]',
 ])
 
 const contentClassName = cva([
   /* layout */
-  'p-3 border border-gray-300 rounded-lg bg-white',
+  'min-w-[var(--radix-select-trigger-width)] p-3 border border-gray-300 rounded-lg bg-white',
 ])
 
 const itemClassName = cva([
