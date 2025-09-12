@@ -1,7 +1,5 @@
-import { cva } from 'class-variance-authority'
+import { HeaderLogo } from '@/source/shared/ui/HeaderLogo'
 
 export default function Home() {
-  return <h1 className={headingCn()}>Home</h1>
+  return <HeaderLogo />
 }
-
-const headingCn = cva('font-bold')
