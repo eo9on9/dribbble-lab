@@ -46,6 +46,15 @@ export default [
         },
       ],
     },
+
+    overrides: [
+      {
+        files: ['next-env.d.ts'],
+        rules: {
+          '@typescript-eslint/triple-slash-reference': 'off',
+        },
+      },
+    ],
   },
 
   /** Prettier와 충돌할 수 있는 ESLint 포맷팅 룰 끔 */
