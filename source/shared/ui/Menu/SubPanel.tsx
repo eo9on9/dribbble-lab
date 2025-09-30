@@ -1,22 +1,21 @@
-import { useDeviceContext } from '@/source/shared/ui/Menu/useDeviceContext'
+import { useModeContext } from '@/source/shared/ui/Menu/useModeContext'
 import { useSubPanelContext } from '@/source/shared/ui/Menu/useSubPanelContext'
 import { cva } from 'class-variance-authority'
 import { useRef, type PropsWithChildren } from 'react'
 
 export const SubPanel = ({ children }: PropsWithChildren) => {
-  const device = useDeviceContext()
+  const mode = useModeContext()
   const { id, isCreated, isShown, onHidden } = useSubPanelContext()
   const ref = useRef<HTMLDivElement>(null)
 
-  const transitionType = device === 'pc' ? 'popup' : 'accordion'
   const maxHeight =
-    transitionType === 'accordion' && !isShown ? 0 : ref.current?.scrollHeight
-  const panelCn = transitionType === 'accordion' ? accordionCn : popupCn
+    mode === 'accordion' && !isShown ? 0 : ref.current?.scrollHeight
+  const panelCn = mode === 'accordion' ? accordionCn : popupCn
 
   if (!isCreated) return null
 
   return (
-    <div className={wrapperCn()}>
+    <div className={wrapperCn({ mode })}>
       <div
         id={id}
         ref={ref}
@@ -31,27 +30,26 @@ export const SubPanel = ({ children }: PropsWithChildren) => {
   )
 }
 
-const wrapperCn = cva([
-  /** layout */
-  'pc:absolute pc:top-full pc:left-0 pc:pt-4',
-])
-
-const panelBaseCn = cva([
-  /** layout */
-  'overflow-hidden bg-white pc:w-[230px] pc:p-6 pc:rounded-lg pc:shadow-panel',
-])
+const wrapperCn = cva(null, {
+  variants: {
+    mode: {
+      accordion: null,
+      popup: 'absolute top-full left-0 pt-4',
+    },
+  },
+})
 
 const accordionCn = cva([
-  /** base */
-  panelBaseCn(),
+  /** layout */
+  'overflow-hidden bg-white',
   /** transition */
   'transition-[max-height] duration-350 ease-[cubic-bezier(0.87,0,0.13,1)]',
 ])
 
 const popupCn = cva(
   [
-    /** base */
-    panelBaseCn(),
+    /** layout */
+    'w-[230px] p-6 rounded-lg bg-white shadow-panel',
     /** transition */
     'transition-[opacity,translate] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]',
   ],

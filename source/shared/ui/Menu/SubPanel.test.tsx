@@ -1,13 +1,10 @@
-import {
-  DEFAULT_DEVICE,
-  type Device,
-} from '@/source/shared/constants/breakpoints'
 import { SubPanel } from '@/source/shared/ui/Menu/SubPanel'
-import { render, screen } from '@testing-library/react'
+import type { Mode } from '@/source/shared/ui/Menu/types'
+import { render } from '@testing-library/react'
 
-const useDeviceContext = vi.hoisted(vi.fn)
-vi.mock('@/source/shared/ui/Menu/useDeviceContext', () => ({
-  useDeviceContext,
+const useModeContext = vi.hoisted(vi.fn)
+vi.mock('@/source/shared/ui/Menu/useModeContext', () => ({
+  useModeContext,
 }))
 
 const useSubPanelContext = vi.hoisted(vi.fn)
@@ -25,10 +22,10 @@ const Tester = () => {
 }
 
 const setup = ({
-  device = DEFAULT_DEVICE,
+  mode = 'popup',
   isCreated = true,
 }: {
-  device?: Device
+  mode?: Mode
   isCreated?: boolean
 } = {}) => {
   useSubPanelContext.mockReturnValue({ isCreated })
@@ -43,11 +40,9 @@ describe('[Component] Menu.SubPanel', () => {
     getByRole('menu')
     getByRole('button', { name: 'SubLink1' })
     getByRole('button', { name: 'SubLink2' })
-
-    screen.debug()
   })
 
-  test('isCreated가 false이면 컴포넌트가 렌더링되지 않는다.', () => {
+  test('생성 상태가 false이면 컴포넌트가 렌더링되지 않는다.', () => {
     const { queryByRole } = setup({ isCreated: false })
 
     expect(queryByRole('menu')).not.toBeInTheDocument()

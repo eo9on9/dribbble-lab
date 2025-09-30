@@ -1,28 +1,24 @@
 import { ChevronIcon } from '@/source/shared/ui/icons'
-import { useDeviceContext } from '@/source/shared/ui/Menu/useDeviceContext'
+import { useModeContext } from '@/source/shared/ui/Menu/useModeContext'
 import { useSubPanelContext } from '@/source/shared/ui/Menu/useSubPanelContext'
 import { cva } from 'class-variance-authority'
 import { type PropsWithChildren } from 'react'
 
 export const Trigger = ({ children }: PropsWithChildren) => {
-  const device = useDeviceContext()
+  const mode = useModeContext()
   const { id, isCreated, toggle, show } = useSubPanelContext()
 
   const handleClick = () => {
-    if (device === 'pc') return
-
-    toggle()
+    if (mode === 'accordion') toggle()
   }
 
   const handleFocus = () => {
-    if (device !== 'pc') return
-
-    show()
+    if (mode === 'popup') show()
   }
 
   return (
     <button
-      className={triggerCn()}
+      className={triggerCn({ mode })}
       onClick={handleClick}
       onFocus={handleFocus}
       role="button"
@@ -35,14 +31,25 @@ export const Trigger = ({ children }: PropsWithChildren) => {
   )
 }
 
-const triggerCn = cva([
-  /** layout */
-  'inline-flex items-center gap-1.5 py-4 pc:py-0',
-  /** text */
-  'text-lg font-bold text-drb-black pc:text-sm pc:font-semibold',
-  /** interaction */
-  'cursor-pointer hover:text-drb-black-hover',
-])
+const triggerCn = cva(
+  [
+    /** layout */
+    'inline-flex items-center gap-1.5 py-4',
+    /** text */
+    'text-lg font-bold text-drb-black',
+    /** interaction */
+    'cursor-pointer hover:text-drb-black-hover',
+    /** mode */
+  ],
+  {
+    variants: {
+      mode: {
+        accordion: null,
+        popup: 'py-0 text-sm font-semibold',
+      },
+    },
+  },
+)
 
 const iconCn = cva([
   /** layout */
