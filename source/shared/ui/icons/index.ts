@@ -1,3 +1,4 @@
+import ChevronIcon from './chevron.svg'
 import LogoIcon from './logo.svg'
 
-export { LogoIcon }
+export { ChevronIcon, LogoIcon }
