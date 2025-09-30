@@ -10,6 +10,10 @@
 
 TypeScript, React, NextJS, TailwindCSS, CVA, Zustand, ...
 
+## 개발 문서
+
+[테크 스펙](https://morning-stone-025.notion.site/Dribbble-Lab-Tech-Specs-27ce1b25930480f39cb5de4351009834)
+
 ## 구현 목표
 
 - [Home](https://dribbble.com/)
