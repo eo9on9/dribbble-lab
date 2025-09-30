@@ -4,6 +4,7 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 import prettierPlugin from 'eslint-plugin-prettier'
 import pluginReact from 'eslint-plugin-react'
 import pluginReactHooks from 'eslint-plugin-react-hooks'
+import storybook from 'eslint-plugin-storybook'
 import tseslint from 'typescript-eslint'
 
 export default [
@@ -59,4 +60,5 @@ export default [
 
   /** Prettier와 충돌할 수 있는 ESLint 포맷팅 룰 끔 */
   eslintConfigPrettier,
+  ...storybook.configs['flat/recommended'],
 ]
