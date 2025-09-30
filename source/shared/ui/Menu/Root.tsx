@@ -1,7 +1,4 @@
-import {
-  DEFAULT_DEVICE,
-  type Device,
-} from '@/source/shared/constants/breakpoints'
+import { type Device } from '@/source/shared/constants/breakpoints'
 import { Container } from '@/source/shared/ui/Menu/Container'
 import { DeviceContextProvider } from '@/source/shared/ui/Menu/useDeviceContext'
 import { SubPanelContextProvider } from '@/source/shared/ui/Menu/useSubPanelContext'
@@ -12,7 +9,7 @@ interface RootProps {
 }
 
 export const Root = ({
-  device = DEFAULT_DEVICE,
+  device = 'pc',
   children,
 }: PropsWithChildren<RootProps>) => {
   return (

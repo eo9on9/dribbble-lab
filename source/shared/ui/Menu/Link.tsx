@@ -11,9 +11,9 @@ export const Link = ({
 
 const cn = cva([
   /** layout */
-  'block',
+  'inline-flex items-center gap-1.5 py-4 pc:py-0',
   /** text */
-  'text-sm text-drb-black',
+  'text-lg font-bold text-drb-black pc:text-sm pc:font-semibold',
   /** interaction */
   'cursor-pointer hover:text-drb-black-hover',
 ])
