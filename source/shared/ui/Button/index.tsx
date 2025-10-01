@@ -1,13 +1,6 @@
+import type { PolymorphicComponentProps } from '@/source/shared/ui/types'
 import { cva } from 'class-variance-authority'
-import type { ComponentPropsWithRef, ElementType } from 'react'
-
-type PolymorphicComponentProps<
-  T extends ElementType,
-  Props = {},
-> = ComponentPropsWithRef<T> &
-  Props & {
-    as?: T
-  }
+import type { ElementType } from 'react'
 
 interface ButtonCustomProps {
   variant?: 'primary' | 'secondary'
