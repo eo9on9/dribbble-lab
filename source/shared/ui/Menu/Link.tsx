@@ -19,7 +19,7 @@ const cn = cva(
     /** text */
     'text-lg font-bold text-drb-black',
     /** interaction */
-    'cursor-pointer hover:text-drb-black-hover',
+    'cursor-pointer hover:text-drb-gray-700',
     /** mode */
   ],
   {

@@ -1,10 +1,15 @@
 @import 'tailwindcss';
 
 @theme {
+  --color-drb-gray-300: #e7e7e9;
   --color-drb-gray-500: #d8d6d5;
+  --color-drb-gray-700: #7b7194;
+  --color-drb-gray-800: #3d3d4e;
+  --color-drb-gray-900: #2b282b;
 
   --color-drb-black: #0d0c22;
-  --color-drb-black-hover: #7b7194;
+
+  --color-drb-ring: #f3afe4;
 
   --shadow-panel: 0px 15px 50px 0px rgba(27, 32, 50, 0.1);
 

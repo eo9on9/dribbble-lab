@@ -8,7 +8,7 @@
 
 ## 사용 기술
 
-TypeScript, React, NextJS, TailwindCSS, CVA, Zustand, ...
+TypeScript, React, NextJS, Vitest, Storybook, TailwindCSS, CVA, Zustand, ...
 
 ## 개발 문서
 
