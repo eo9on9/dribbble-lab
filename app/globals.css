@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
+  --color-drb-gray-50: #f3f3f6;
   --color-drb-gray-300: #e7e7e9;
   --color-drb-gray-500: #d8d6d5;
   --color-drb-gray-700: #7b7194;
@@ -9,6 +10,10 @@
 
   --color-drb-black: #0d0c22;
 
+  --color-drb-pink-50: #faebf9;
+  --color-drb-pink-100: #f3afe4;
+  --color-drb-pink-300: #ec5e95;
+  --color-drb-pink-400: #ea4c89;
   --color-drb-ring: #f3afe4;
 
   --shadow-panel: 0px 15px 50px 0px rgba(27, 32, 50, 0.1);
@@ -18,4 +23,36 @@
 
   --breakpoint-tablet: 790px;
   --breakpoint-pc: 1200px;
+}
+
+@layer utilities {
+  @keyframes slide-down {
+    from {
+      transform: translateY(-4px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.2s ease-out forwards;
+  }
+
+  @keyframes slide-down-reverse {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-4px);
+      opacity: 0;
+    }
+  }
+
+  .animate-slide-down-reverse {
+    animation: slide-down-reverse 0.2s ease-out forwards;
+  }
 }
