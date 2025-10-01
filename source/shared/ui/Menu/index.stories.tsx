@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { Menu } from '@/source/shared/ui/Menu'
 
 const meta = {
-  title: 'Example/Menu',
+  title: 'UI Components/Menu',
   component: Menu,
   tags: ['autodocs'],
   args: {
