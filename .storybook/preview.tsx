@@ -1,5 +1,16 @@
 import type { Preview } from '@storybook/nextjs'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import React, { useState } from 'react'
 import '../app/globals.css'
+
+const withReactQuery = Story => {
+  const [queryClient] = useState(() => new QueryClient())
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Story />
+    </QueryClientProvider>
+  )
+}
 
 const preview: Preview = {
   parameters: {
@@ -17,6 +28,7 @@ const preview: Preview = {
       test: 'todo',
     },
   },
+  decorators: [withReactQuery],
 }
 
 export default preview

@@ -6,7 +6,7 @@ import { SuggestionControlProvider } from '@/source/shared/ui/SearchBox/Suggesti
 import { TextField } from '@/source/shared/ui/SearchBox/TextField'
 import { type SelectOption } from './types'
 
-interface SearchBoxProps {
+export interface SearchBoxProps {
   textPlaceholder?: string
   textValue?: string
   onChangeText?: (value: string) => void
@@ -41,12 +41,14 @@ export const SearchBox = ({
             value={textValue}
             onChange={onChangeText}
           />
-          <Select
-            placeholder={selectPlaceholder}
-            value={selectValue}
-            options={selectOptions}
-            onChange={onChangeSelect}
-          />
+          {selectOptions?.length && (
+            <Select
+              placeholder={selectPlaceholder}
+              value={selectValue}
+              options={selectOptions}
+              onChange={onChangeSelect}
+            />
+          )}
           <SearchButton
             onClick={() => onSearch?.({ text: textValue, select: selectValue })}
           />

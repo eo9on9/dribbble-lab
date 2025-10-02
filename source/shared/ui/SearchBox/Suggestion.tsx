@@ -12,7 +12,7 @@ export const Suggestion = forwardRef<HTMLDivElement, SuggestionProps>(
   ({ value, onClick }, ref) => {
     const { suggestions, isOpen } = useSuggestionControlContext()
 
-    if (value?.length === 0 || !isOpen) return null
+    if (suggestions.length === 0 || value?.length === 0 || !isOpen) return null
 
     return (
       <div ref={ref} className={wrapClassName()} role="listbox">
@@ -28,5 +28,5 @@ Suggestion.displayName = 'Suggestion'
 
 const wrapClassName = cva([
   /** layout */
-  'absolute top-16 left-0 w-full bg-white rounded-lg shadow-panel p-2',
+  'z-10 absolute top-16 left-0 w-full bg-white rounded-lg shadow-panel p-2',
 ])
