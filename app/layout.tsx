@@ -1,3 +1,4 @@
+import { QueryClientProvider } from '@/source/app/providers/QueryClientProvider'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { PropsWithChildren } from 'react'
@@ -33,8 +34,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={`${monaSans.className}`}>
-        {/* <DeviceListener /> */}
-        {children}
+        <QueryClientProvider>{children}</QueryClientProvider>
       </body>
     </html>
   )

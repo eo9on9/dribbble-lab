@@ -83,7 +83,7 @@ const contentClassName = cva([
 
 const itemClassName = cva([
   /** layout */
-  'flex items-center min-w-30 h-9 px-3 rounded-lg',
+  'flex items-center justify-between min-w-30 h-9 px-3 rounded-lg',
   /** text */
   'text-sm text-drb-black',
   /** interaction */
