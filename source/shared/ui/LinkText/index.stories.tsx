@@ -3,7 +3,7 @@ import { LinkText } from '@/source/shared/ui/LinkText'
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
 const meta = {
-  title: 'UI Components/LinkText',
+  title: 'Shared/LinkText',
   component: LinkText,
   tags: ['autodocs'],
   args: {

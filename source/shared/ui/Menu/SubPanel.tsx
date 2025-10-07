@@ -49,7 +49,7 @@ const accordionCn = cva([
 const popupCn = cva(
   [
     /** layout */
-    'w-[230px] p-6 rounded-lg bg-white shadow-panel',
+    'min-w-[230px] px-6 py-3 rounded-lg bg-white shadow-panel whitespace-nowrap',
     /** transition */
     'transition-[opacity,translate] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]',
   ],

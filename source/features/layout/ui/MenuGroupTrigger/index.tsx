@@ -1,7 +1,10 @@
 import { cva } from 'class-variance-authority'
 
 interface MenuGroupTriggerProps {
+  /** 메뉴 그룹 열림 상태 */
   isOpen: boolean
+
+  /** 클릭 이벤트 핸들러 */
   onClick?: (value: boolean) => void
 }
 

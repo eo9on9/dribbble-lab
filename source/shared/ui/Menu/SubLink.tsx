@@ -3,33 +3,29 @@ import { cva } from 'class-variance-authority'
 import NextLink from 'next/link'
 import type { ComponentProps } from 'react'
 
-interface SubLinkProps extends ComponentProps<typeof NextLink> {
-  strong?: boolean
-}
-
-export const SubLink = ({ strong, className, ...props }: SubLinkProps) => {
+export const SubLink = ({
+  className,
+  ...props
+}: ComponentProps<typeof NextLink>) => {
   const mode = useModeContext()
 
-  return <NextLink {...props} className={cn({ className, strong, mode })} />
+  return <NextLink {...props} className={cn({ className, mode })} />
 }
 
 const cn = cva(
   [
     /** layout */
-    'block',
+    'flex w-full items-center gap-2',
     /** text */
-    'text-drb-black',
+    'text-sm text-drb-black',
     /** interaction */
     'cursor-pointer hover:text-drb-gray-700',
   ],
   {
     variants: {
-      strong: {
-        true: 'font-semibold',
-      },
       mode: {
         accordion: 'py-4',
-        popup: 'py-3 text-sm',
+        popup: 'py-3',
       },
     },
   },
