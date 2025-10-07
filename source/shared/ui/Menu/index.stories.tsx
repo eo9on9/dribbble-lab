@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { Menu } from '@/source/shared/ui/Menu'
 
 const meta = {
-  title: 'UI Components/Menu',
+  title: 'Shared/Menu',
   component: Menu,
   tags: ['autodocs'],
   args: {
@@ -27,12 +27,8 @@ export const Default: Story = {
       <Menu {...args}>
         <Menu.Trigger>With Sub Menu</Menu.Trigger>
         <Menu.SubPanel>
-          <Menu.SubLink href="#" strong>
-            Menu 1
-          </Menu.SubLink>
-          <Menu.SubLink href="#" strong>
-            Menu 2
-          </Menu.SubLink>
+          <Menu.SubLink href="#">Menu 1</Menu.SubLink>
+          <Menu.SubLink href="#">Menu 2</Menu.SubLink>
           <Menu.Divider />
           <Menu.SubLink href="#">Menu 3</Menu.SubLink>
           <Menu.SubLink href="#">Menu 4</Menu.SubLink>

@@ -2,7 +2,7 @@ import { Button } from '@/source/shared/ui/Button'
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
 const meta = {
-  title: 'UI Components/Button',
+  title: 'Shared/Button',
   component: Button,
   tags: ['autodocs'],
   args: {

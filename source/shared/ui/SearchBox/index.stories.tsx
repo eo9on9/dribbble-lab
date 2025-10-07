@@ -11,7 +11,7 @@ const SEARCH_SELECT_OPTIONS = [
 ]
 
 const meta = {
-  title: 'UI Components/SearchBox',
+  title: 'Shared/SearchBox',
   component: SearchBox,
   tags: ['autodocs'],
   args: {
