@@ -39,7 +39,7 @@ export const Container = ({ children }: PropsWithChildren) => {
 
 const containerClassName = cva([
   /** layout */
-  'relative flex justify-center items-center gap-3 w-full px-2 h-14 bg-drb-gray-50 rounded-full border-2 border-drb-gray-50',
+  'relative flex justify-center items-center gap-3 w-full px-1 h-12 tablet:h-14 tablet:px-2 bg-drb-gray-50 rounded-full border-2 border-drb-gray-50',
   /** interaction */
   'hover:bg-white hover:border-drb-pink-50 focus-within:bg-white focus-within:border-drb-pink-50',
   /** transition */

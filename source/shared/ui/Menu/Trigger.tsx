@@ -36,7 +36,7 @@ const triggerCn = cva(
     /** layout */
     'inline-flex items-center gap-1.5 py-4',
     /** text */
-    'text-lg font-bold text-drb-black',
+    'text-lg font-bold text-drb-black whitespace-nowrap',
     /** interaction */
     'cursor-pointer hover:text-drb-gray-700',
     /** mode */

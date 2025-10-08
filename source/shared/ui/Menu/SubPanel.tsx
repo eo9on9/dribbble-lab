@@ -5,7 +5,7 @@ import { useRef, type PropsWithChildren } from 'react'
 
 export const SubPanel = ({ children }: PropsWithChildren) => {
   const mode = useModeContext()
-  const { id, isCreated, isShown, onHidden } = useSubPanelContext()
+  const { id, isCreated, isShown } = useSubPanelContext()
   const ref = useRef<HTMLDivElement>(null)
 
   const maxHeight =
@@ -20,7 +20,6 @@ export const SubPanel = ({ children }: PropsWithChildren) => {
         id={id}
         ref={ref}
         className={panelCn({ isShown })}
-        onTransitionEnd={onHidden}
         style={{ maxHeight }}
         role="menu"
       >

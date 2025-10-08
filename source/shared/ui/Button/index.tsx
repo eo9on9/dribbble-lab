@@ -41,7 +41,7 @@ const cn = cva(
           'border-[1.5px] border-drb-gray-300 bg-white text-drb-black hover:border-drb-gray-500',
       },
       size: {
-        lg: 'h-12 px-6 text-sm tablet:h-10',
+        lg: 'h-10 px-6 text-sm tablet:h-12',
         md: 'h-10 px-5 text-[13px]',
       },
     },
