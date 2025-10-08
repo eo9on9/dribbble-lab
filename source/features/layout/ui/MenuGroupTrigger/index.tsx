@@ -28,6 +28,8 @@ export const MenuGroupTrigger = ({
 const buttonCn = cva([
   /** layout */
   'flex flex-col gap-1 w-6',
+  /** interaction */
+  'cursor-pointer',
 ])
 
 const lineBaseCn = cva([

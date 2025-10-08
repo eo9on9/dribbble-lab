@@ -1,3 +1,4 @@
+import { useMountTransition } from '@/source/shared/lib/hooks/useMountTransition'
 import {
   createContext,
   useContext,
@@ -13,8 +14,6 @@ interface SubPanelContextValue {
   show: () => void
   hide: () => void
   toggle: () => void
-  reset: () => void
-  onHidden: () => void
 }
 
 const subPanelContext = createContext<SubPanelContextValue | undefined>(
@@ -23,60 +22,16 @@ const subPanelContext = createContext<SubPanelContextValue | undefined>(
 
 export const SubPanelContextProvider = ({ children }: PropsWithChildren) => {
   const id = useId()
-  const [isCreated, setIsCreated] = useState(false)
-  const [isShown, setIsShown] = useState(false)
-
-  const _show = () => {
-    setIsCreated(true)
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setIsShown(true)
-      })
-    })
-  }
-
-  const _hide = () => {
-    setIsShown(false)
-  }
-
-  const _destroy = () => {
-    setIsCreated(false)
-  }
-
-  const show = () => {
-    if (!isShown) _show()
-  }
-
-  const hide = () => {
-    if (isCreated) _hide()
-  }
-
-  const toggle = () => {
-    if (!isShown) {
-      _show()
-    } else if (isCreated) {
-      _hide()
-    }
-  }
-
-  const reset = () => {
-    _destroy()
-    _hide()
-  }
-
-  const onHidden = () => {
-    if (!isShown) _destroy()
-  }
+  const [isOpen, setIsOpen] = useState(false)
+  const { isCreated, isShown } = useMountTransition({ isOpen, duration: 300 })
 
   const value = {
     id,
     isCreated,
     isShown,
-    show,
-    hide,
-    toggle,
-    reset,
-    onHidden,
+    show: () => setIsOpen(true),
+    hide: () => setIsOpen(false),
+    toggle: () => setIsOpen(prev => !prev),
   }
 
   return (

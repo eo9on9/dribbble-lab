@@ -12,4 +12,9 @@ export const HeaderLogo = () => {
   )
 }
 
-const logoCn = cva('w-22')
+const logoCn = cva([
+  /** layout */
+  'w-22',
+  /** interaction */
+  'cursor-pointer hover:opacity-70',
+])
