@@ -12,11 +12,11 @@ export const MarqueeGallary = ({ items }: MarqueeGallaryProps) => {
 
   return (
     <div className={containerCn()}>
-      <div className={listCn()}>
+      <ul className={listCn()}>
         {_items.map((item, index) => (
           <Item key={index} {...item} />
         ))}
-      </div>
+      </ul>
     </div>
   )
 }

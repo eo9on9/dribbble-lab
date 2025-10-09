@@ -1,7 +1,7 @@
 import { MarqueeGallary } from '@/source/shared/ui/MarqueeGallary'
-import type { Meta, StoryObj } from '@storybook/nextjs'
+import { cva } from 'class-variance-authority'
 
-const MARQUEE_GALLARY_ITEMS = [
+export const FOOTER_GALLARY_ITEMS = [
   {
     title: 'Print',
     imageSrc: '/assets/images/marquee-print.webp',
@@ -44,17 +44,15 @@ const MARQUEE_GALLARY_ITEMS = [
   },
 ]
 
-const meta = {
-  title: 'Shared/MarqueeGallary',
-  component: MarqueeGallary,
-  tags: ['autodocs'],
-  args: {
-    items: MARQUEE_GALLARY_ITEMS,
-  },
-} satisfies Meta<typeof MarqueeGallary>
+export const GallerySection = () => {
+  return (
+    <div className={cn()}>
+      <MarqueeGallary items={FOOTER_GALLARY_ITEMS} />
+    </div>
+  )
+}
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {}
+const cn = cva([
+  /** layout */
+  'pt-[60px]',
+])

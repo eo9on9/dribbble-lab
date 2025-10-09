@@ -14,7 +14,7 @@ export const Item = ({ title, imageSrc, href }: ItemProps) => {
   const handleLeave = () => setIsHovered(false)
 
   return (
-    <div
+    <li
       className={wrapperCn()}
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
@@ -35,7 +35,7 @@ export const Item = ({ title, imageSrc, href }: ItemProps) => {
         <div className={imageShadow2Cn({ isHovered })} />
       </div>
       <div className={titleCn()}>{title}</div>
-    </div>
+    </li>
   )
 }
 
