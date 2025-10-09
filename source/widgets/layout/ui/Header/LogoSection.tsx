@@ -1,4 +1,4 @@
-import { HeaderLogo } from '@/source/shared/ui/HeaderLogo'
+import { HeaderLogo } from '@/source/features/layout/ui/HeaderLogo'
 
 export const LogoSection = () => {
   return <HeaderLogo />

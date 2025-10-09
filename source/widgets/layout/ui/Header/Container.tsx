@@ -8,10 +8,10 @@ export const Container = ({ children }: PropsWithChildren) => {
   const spaceCn = isSearchToggle ? toggleCn : normalCn
 
   return (
-    <div>
+    <header>
       <div className={containerCn({ isFixed })}>{children}</div>
       <div className={spaceCn({ isFixed })} />
-    </div>
+    </header>
   )
 }
 
