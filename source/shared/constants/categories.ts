@@ -14,3 +14,5 @@ export const CATEGORIES = [
     value: 'services',
   },
 ] as const satisfies SelectOption[]
+
+export type KindOfCategories = (typeof CATEGORIES)[number]['value']

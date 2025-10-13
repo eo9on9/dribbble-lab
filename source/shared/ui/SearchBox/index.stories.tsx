@@ -24,6 +24,7 @@ const meta = {
     selectOptions: SEARCH_SELECT_OPTIONS,
     onChangeSelect: fn(),
     onSearch: fn(),
+    size: 'md',
   },
   argTypes: {
     textPlaceholder: {
@@ -58,6 +59,11 @@ const meta = {
     },
     onSearch: {
       description: '검색 함수',
+    },
+    size: {
+      control: 'radio',
+      options: ['md', 'lg'],
+      description: '검색 박스 크기',
     },
   },
 } satisfies Meta<typeof SearchBox>
