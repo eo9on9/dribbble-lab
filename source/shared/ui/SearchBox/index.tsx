@@ -19,6 +19,8 @@ export interface SearchBoxProps {
   onSearch?: (value: { text: string; select: string }) => void
 
   textSuggestions?: string[]
+
+  size?: 'md' | 'lg'
 }
 
 export const SearchBox = ({
@@ -31,11 +33,12 @@ export const SearchBox = ({
   onChangeSelect,
   onSearch,
   textSuggestions = [],
+  size = 'md',
 }: SearchBoxProps) => {
   return (
     <BoxControlProvider>
       <SuggestionControlProvider suggestions={textSuggestions}>
-        <Container>
+        <Container size={size}>
           <TextField
             placeholder={textPlaceholder}
             value={textValue}

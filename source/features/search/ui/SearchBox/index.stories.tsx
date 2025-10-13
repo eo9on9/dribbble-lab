@@ -8,6 +8,7 @@ const meta = {
   tags: ['autodocs'],
   args: {
     onSearch: fn(),
+    size: 'md',
   },
 } satisfies Meta<typeof SearchBox>
 

@@ -3,6 +3,7 @@ import BrowseIcon from './browse.svg'
 import CheckIcon from './check.svg'
 import ChevronIcon from './chevron.svg'
 import ClearIcon from './clear.svg'
+import DesignersIcon from './designers.svg'
 import FacebookIcon from './facebook.svg'
 import HireIcon from './hire.svg'
 import InstagramIcon from './instagram.svg'
@@ -19,6 +20,8 @@ import PurchaseIcon from './purchase.svg'
 import SearchBoldIcon from './search-bold.svg'
 import SearchIcon from './search.svg'
 import SelectArrowIcon from './select-arrow.svg'
+import ServicesIcon from './services.svg'
+import ShotsIcon from './shots.svg'
 import TwitterIcon from './twitter.svg'
 import UpgradeIcon from './upgrade.svg'
 
@@ -28,6 +31,7 @@ export {
   CheckIcon,
   ChevronIcon,
   ClearIcon,
+  DesignersIcon,
   FacebookIcon,
   HireIcon,
   InstagramIcon,
@@ -44,6 +48,8 @@ export {
   SearchBoldIcon,
   SearchIcon,
   SelectArrowIcon,
+  ServicesIcon,
+  ShotsIcon,
   TwitterIcon,
   UpgradeIcon,
 }

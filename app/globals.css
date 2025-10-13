@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
+  --color-drb-gray-30: #faf9fb;
   --color-drb-gray-50: #f3f3f6;
   --color-drb-gray-300: #e7e7e9;
   --color-drb-gray-500: #d8d6d5;
@@ -27,6 +28,10 @@
 }
 
 @layer utilities {
+  .scrollbar-hidden {
+    scrollbar-width: none;
+  }
+
   @keyframes slide-down {
     from {
       transform: translateY(-4px);
