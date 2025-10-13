@@ -8,19 +8,12 @@ import './globals.css'
 const monaSans = localFont({
   src: [
     {
-      path: './fonts/MonaSans-Regular.woff2',
-      weight: '400',
+      path: './fonts/MonaSans-VariableFont.woff2',
       style: 'normal',
     },
     {
-      path: './fonts/MonaSans-SemiBold.woff2',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: './fonts/MonaSans-Bold.woff2',
-      weight: '700',
-      style: 'normal',
+      path: './fonts/MonaSans-Italic-VariableFont.woff2',
+      style: 'italic',
     },
   ],
   variable: '--font-mona-sans',
