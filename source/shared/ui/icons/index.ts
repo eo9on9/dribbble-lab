@@ -10,7 +10,9 @@ import JobsIcon from './jobs.svg'
 import LogoIcon from './logo.svg'
 import MatchIcon from './match.svg'
 import NoteworthyIcon from './noteworthy.svg'
+import PauseIcon from './pause.svg'
 import PinterestIcon from './pinterest.svg'
+import PlayIcon from './play.svg'
 import PopularIcon from './popular.svg'
 import PostIcon from './post.svg'
 import PurchaseIcon from './purchase.svg'
@@ -33,7 +35,9 @@ export {
   LogoIcon,
   MatchIcon,
   NoteworthyIcon,
+  PauseIcon,
   PinterestIcon,
+  PlayIcon,
   PopularIcon,
   PostIcon,
   PurchaseIcon,
