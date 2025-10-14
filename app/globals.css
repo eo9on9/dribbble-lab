@@ -8,6 +8,7 @@
   --color-drb-gray-700: #7b7194;
   --color-drb-gray-750: #6e6d7a;
   --color-drb-gray-800: #3d3d4e;
+  --color-drb-gray-850: #3a3546;
   --color-drb-gray-900: #2b282b;
 
   --color-drb-black: #0d0c22;
@@ -73,5 +74,29 @@
 
   .animate-marquee {
     animation: marquee 32s linear infinite;
+  }
+
+  @property --angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @keyframes gradient-rotate {
+    100% {
+      --angle: 360deg;
+    }
+  }
+
+  .animate-gradient-rotate {
+    background-image: conic-gradient(
+      from var(--angle),
+      transparent 70%,
+      rgba(216, 106, 212, 0.231373),
+      rgba(151, 110, 221, 0.309804),
+      rgba(162, 110, 220, 0.2),
+      rgba(255, 255, 255, 0)
+    );
+    animation: gradient-rotate 4s linear infinite;
   }
 }

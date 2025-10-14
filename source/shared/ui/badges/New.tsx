@@ -8,5 +8,5 @@ const cn = cva([
   /** layout */
   'inline-block px-2 py-1 bg-drb-pink-400 rounded-full',
   /** text */
-  'text-[10px] font-semibold text-white',
+  'leading-[1] text-[10px] font-semibold text-white',
 ])
