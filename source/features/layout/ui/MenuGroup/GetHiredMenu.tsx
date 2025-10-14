@@ -1,7 +1,7 @@
 import { IconWrap } from '@/source/features/layout/ui/MenuGroup/IconWrap'
-import { ProBadge } from '@/source/features/layout/ui/MenuGroup/ProBadge'
 import { Strong } from '@/source/features/layout/ui/MenuGroup/Strong'
 import { useMenuGroupContext } from '@/source/features/layout/ui/MenuGroup/useMenuGroupContext'
+import { ProBadge } from '@/source/shared/ui/badges'
 import { AdvertiseIcon, JobsIcon, UpgradeIcon } from '@/source/shared/ui/icons'
 import { Menu } from '@/source/shared/ui/Menu'
 

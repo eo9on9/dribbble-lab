@@ -4,12 +4,12 @@ import { cva } from 'class-variance-authority'
 import { type FocusEvent, type PropsWithChildren } from 'react'
 
 export interface ContainerProps {
-  size: SearchBoxSize
+  size?: SearchBoxSize
 }
 
 export const Container = ({
   children,
-  size,
+  size = 'md',
 }: PropsWithChildren<ContainerProps>) => {
   const { setIsFocused, setIsHovered } = useBoxControlContext()
 

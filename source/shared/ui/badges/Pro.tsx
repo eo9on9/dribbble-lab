@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority'
 
-export const ProBadge = () => {
+export const Pro = () => {
   return <span className={cn()}>Pro</span>
 }
 

@@ -1,7 +1,7 @@
 import { IconWrap } from '@/source/features/layout/ui/MenuGroup/IconWrap'
-import { NewBadge } from '@/source/features/layout/ui/MenuGroup/NewBadge'
 import { Strong } from '@/source/features/layout/ui/MenuGroup/Strong'
 import { useMenuGroupContext } from '@/source/features/layout/ui/MenuGroup/useMenuGroupContext'
+import { NewBadge } from '@/source/shared/ui/badges'
 import {
   BrowseIcon,
   HireIcon,

@@ -1,55 +1,26 @@
-import AdvertiseIcon from './advertise.svg'
-import BrowseIcon from './browse.svg'
-import CheckIcon from './check.svg'
-import ChevronIcon from './chevron.svg'
-import ClearIcon from './clear.svg'
-import DesignersIcon from './designers.svg'
-import FacebookIcon from './facebook.svg'
-import HireIcon from './hire.svg'
-import InstagramIcon from './instagram.svg'
-import JobsIcon from './jobs.svg'
-import LogoIcon from './logo.svg'
-import MatchIcon from './match.svg'
-import NoteworthyIcon from './noteworthy.svg'
-import PauseIcon from './pause.svg'
-import PinterestIcon from './pinterest.svg'
-import PlayIcon from './play.svg'
-import PopularIcon from './popular.svg'
-import PostIcon from './post.svg'
-import PurchaseIcon from './purchase.svg'
-import SearchBoldIcon from './search-bold.svg'
-import SearchIcon from './search.svg'
-import SelectArrowIcon from './select-arrow.svg'
-import ServicesIcon from './services.svg'
-import ShotsIcon from './shots.svg'
-import TwitterIcon from './twitter.svg'
-import UpgradeIcon from './upgrade.svg'
-
-export {
-  AdvertiseIcon,
-  BrowseIcon,
-  CheckIcon,
-  ChevronIcon,
-  ClearIcon,
-  DesignersIcon,
-  FacebookIcon,
-  HireIcon,
-  InstagramIcon,
-  JobsIcon,
-  LogoIcon,
-  MatchIcon,
-  NoteworthyIcon,
-  PauseIcon,
-  PinterestIcon,
-  PlayIcon,
-  PopularIcon,
-  PostIcon,
-  PurchaseIcon,
-  SearchBoldIcon,
-  SearchIcon,
-  SelectArrowIcon,
-  ServicesIcon,
-  ShotsIcon,
-  TwitterIcon,
-  UpgradeIcon,
-}
+export { default as AdvertiseIcon } from './advertise.svg'
+export { default as BrowseIcon } from './browse.svg'
+export { default as CheckIcon } from './check.svg'
+export { default as ChevronIcon } from './chevron.svg'
+export { default as ClearIcon } from './clear.svg'
+export { default as DesignersIcon } from './designers.svg'
+export { default as FacebookIcon } from './facebook.svg'
+export { default as HireIcon } from './hire.svg'
+export { default as InstagramIcon } from './instagram.svg'
+export { default as JobsIcon } from './jobs.svg'
+export { default as LogoIcon } from './logo.svg'
+export { default as MatchIcon } from './match.svg'
+export { default as NoteworthyIcon } from './noteworthy.svg'
+export { default as PauseIcon } from './pause.svg'
+export { default as PinterestIcon } from './pinterest.svg'
+export { default as PlayIcon } from './play.svg'
+export { default as PopularIcon } from './popular.svg'
+export { default as PostIcon } from './post.svg'
+export { default as PurchaseIcon } from './purchase.svg'
+export { default as SearchBoldIcon } from './search-bold.svg'
+export { default as SearchIcon } from './search.svg'
+export { default as SelectArrowIcon } from './select-arrow.svg'
+export { default as ServicesIcon } from './services.svg'
+export { default as ShotsIcon } from './shots.svg'
+export { default as TwitterIcon } from './twitter.svg'
+export { default as UpgradeIcon } from './upgrade.svg'

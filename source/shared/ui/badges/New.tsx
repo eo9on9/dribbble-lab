@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority'
 
-export const NewBadge = () => {
+export const New = () => {
   return <span className={cn()}>New</span>
 }
 
