@@ -16,4 +16,4 @@ export const Container = ({ children }: PropsWithChildren) => {
   )
 }
 
-const cn = cva(['overflow-hidden relative w-full h-[360px] rounded-3xl'])
+const cn = cva(['overflow-hidden relative w-full h-[430px] rounded-3xl'])

@@ -43,7 +43,7 @@ export const Recommends = () => {
 
 const wrapperCn = cva([
   /** layout */
-  'flex items-center gap-2 w-full h-8 overflow-x-auto scrollbar-hidden',
+  'flex items-center gap-2 w-full h-8 overflow-x-auto scrollbar-hidden pc:overflow-hidden',
 ])
 
 const titleCn = cva([
@@ -53,7 +53,7 @@ const titleCn = cva([
 
 const listCn = cva([
   /** layout */
-  'flex items-center gap-2',
+  'flex h-8 gap-2 pc:flex-wrap',
 ])
 
 const linkCn = cva([
