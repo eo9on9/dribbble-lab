@@ -1,8 +1,8 @@
-import { Description } from '@/source/features/main/ui/IntroMessage/Description'
-import { Title } from '@/source/features/main/ui/IntroMessage/Title'
 import { cva } from 'class-variance-authority'
+import { Description } from './Description'
+import { Title } from './Title'
 
-export const IntroMessage = () => {
+export const HeroMessage = () => {
   return (
     <div className={cn()}>
       <Title />
