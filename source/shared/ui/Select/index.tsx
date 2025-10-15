@@ -26,6 +26,7 @@ export interface SelectProps {
   options?: SelectOption[]
   onChange?: (value: string) => void
   defaultValue?: string
+  size?: 'md' | 'lg'
 }
 
 export const Select = ({
@@ -35,6 +36,7 @@ export const Select = ({
   onChange,
   name,
   defaultValue,
+  size = 'md',
 }: SelectProps) => {
   return (
     <SelectRoot
@@ -43,7 +45,7 @@ export const Select = ({
       value={value}
       onValueChange={onChange}
     >
-      <SelectTrigger className={triggerClassName()}>
+      <SelectTrigger className={triggerClassName({ size })}>
         <SelectValue placeholder={placeholder} />
         <SelectIcon>
           <SelectArrowIcon width={10} height={10} />
@@ -77,14 +79,25 @@ export const Select = ({
   )
 }
 
-const triggerClassName = cva([
-  /** layout */
-  'flex gap-3 items-center justify-between min-w-[115px] h-10 px-[18px] outline-0 border border-drb-gray-300 rounded-lg',
-  /** text */
-  'text-sm font-medium text-drb-black',
-  /** interaction */
-  'cursor-pointer hover:text-drb-gray-700 focus:text-drb-gray-700 focus-ring',
-])
+const triggerClassName = cva(
+  [
+    /** layout */
+    'flex gap-3 items-center justify-between min-w-[115px] px-[18px] outline-0 border border-drb-gray-300 rounded-lg',
+    /** text */
+    'text-sm font-medium text-drb-black',
+    /** interaction */
+    'cursor-pointer hover:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.03)] focus-ring',
+  ],
+  {
+    variants: {
+      size: {
+        md: 'h-10',
+        lg: 'h-14',
+      },
+    },
+  },
+)
+
 const contentClassName = cva([
   /** layout */
   'p-3 border border-drb-gray-300 rounded-lg bg-white shadow-panel',
