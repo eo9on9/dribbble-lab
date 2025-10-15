@@ -6,9 +6,13 @@
 
 실제 근무 중 작성한 코드를 공개할 수 없어, 클론 프로젝트를 제작하였습니다.
 
+## 폴더 구조
+
+[Feature Sliced Design](https://feature-sliced.design/)
+
 ## 사용 기술
 
-TypeScript, React, NextJS, Vitest, Storybook, TailwindCSS, CVA, Zustand, ...
+TypeScript, React, NextJS, Vitest, Storybook, TailwindCSS, CVA, ...
 
 ## 개발 문서
 
