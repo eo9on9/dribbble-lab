@@ -13,6 +13,7 @@ const meta = {
   component: Select,
   tags: ['autodocs'],
   args: {
+    size: 'md',
     options: OPTIONS,
     placeholder: 'Select',
     onChange: fn(),
