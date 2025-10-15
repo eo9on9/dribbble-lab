@@ -27,6 +27,8 @@ export interface SelectProps {
   onChange?: (value: string) => void
   defaultValue?: string
   size?: 'md' | 'lg'
+  fullWidth?: boolean
+  id?: string
 }
 
 export const Select = ({
@@ -37,6 +39,8 @@ export const Select = ({
   name,
   defaultValue,
   size = 'md',
+  fullWidth = false,
+  id,
 }: SelectProps) => {
   return (
     <SelectRoot
@@ -45,7 +49,7 @@ export const Select = ({
       value={value}
       onValueChange={onChange}
     >
-      <SelectTrigger className={triggerClassName({ size })}>
+      <SelectTrigger className={triggerClassName({ size, fullWidth })} id={id}>
         <SelectValue placeholder={placeholder} />
         <SelectIcon>
           <SelectArrowIcon width={10} height={10} />
@@ -53,7 +57,7 @@ export const Select = ({
       </SelectTrigger>
       <SelectPortal>
         <SelectContent
-          className={contentClassName()}
+          className={contentClassName({ fullWidth })}
           position="popper"
           sideOffset={12}
         >
@@ -94,14 +98,26 @@ const triggerClassName = cva(
         md: 'h-10',
         lg: 'h-14',
       },
+      fullWidth: {
+        true: 'w-full',
+      },
     },
   },
 )
 
-const contentClassName = cva([
-  /** layout */
-  'p-3 border border-drb-gray-300 rounded-lg bg-white shadow-panel',
-])
+const contentClassName = cva(
+  [
+    /** layout */
+    'p-3 border border-drb-gray-300 rounded-lg bg-white shadow-panel',
+  ],
+  {
+    variants: {
+      fullWidth: {
+        true: 'w-[var(--radix-select-trigger-width)]',
+      },
+    },
+  },
+)
 
 const itemClassName = cva([
   /** layout */
