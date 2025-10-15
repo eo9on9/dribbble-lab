@@ -30,6 +30,10 @@
 }
 
 @layer utilities {
+  .focus-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-drb-ring;
+  }
+
   .scrollbar-hidden {
     scrollbar-width: none;
   }
