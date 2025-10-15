@@ -1,6 +1,6 @@
 import { FilterContent } from '@/source/features/search/ui/FilterNav/FilterContent'
 import { FilterTrigger } from '@/source/features/search/ui/FilterNav/FilterTrigger'
-import { Shortcuts } from '@/source/features/search/ui/FilterNav/Shorcuts'
+import { Shortcuts } from '@/source/features/search/ui/FilterNav/Shortcuts'
 import { SortSelect } from '@/source/features/search/ui/FilterNav/SortSelect'
 import { cva } from 'class-variance-authority'
 import { useState } from 'react'
